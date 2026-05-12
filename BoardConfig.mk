@@ -115,6 +115,17 @@ BOARD_EROFS_PCLUSTER_SIZE := 4096
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 
+# Haptic
+FIXED_HAPTICS := true
+
+ifeq ($(FIXED_HAPTICS),true)
+   TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+else
+   TW_NO_HAPTICS := true
+endif
+
 #Neom_mostafameesr
 TW_INCLUDE_FASTBOOTD := true
 TW_INCLUDE_REPACKTOOLS := true
