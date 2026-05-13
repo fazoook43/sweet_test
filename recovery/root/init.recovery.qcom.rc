@@ -57,4 +57,3 @@ on boot
 
 on property:twrp.modules.loaded=true
     start vibratorfeature-hal-service
-
