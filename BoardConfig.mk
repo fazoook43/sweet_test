@@ -115,8 +115,8 @@ BOARD_EROFS_PCLUSTER_SIZE := 4096
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 
-   TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-   TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
 
 #Neom_mostafameesr
 TW_INCLUDE_FASTBOOTD := true
