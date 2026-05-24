@@ -34,14 +34,6 @@ service overrideprops /system/bin/overrideprops.sh
     oneshot
     seclabel u:r:recovery:s0
 
-# Xiaomi AIDL Vibrator Service (aw8624)
-service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
-    user root
-    group root input audio
-    disabled
-    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/vendor/lib:/system/lib64:/system/lib:/sbin
-    seclabel u:r:recovery:s
-
 service variant-script /system/bin/variant-script.sh
     user root
     group root
@@ -52,13 +44,6 @@ service variant-script /system/bin/variant-script.sh
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    # aw8624 haptic sysfs permissions
-    chown system system /sys/bus/i2c/drivers/aw8624_haptic/2-005a/f0_save
-    chown system system /sys/bus/i2c/drivers/aw8624_haptic/2-005a/osc_save
-    chown system system /sys/bus/i2c/drivers/aw8624_haptic/2-005a/activate
-    chown system system /sys/bus/i2c/drivers/aw8624_haptic/2-005a/duration
-    chmod 0666 /sys/bus/i2c/drivers/aw8624_haptic/2-005a/activate
-    chmod 0666 /sys/bus/i2c/drivers/aw8624_haptic/2-005a/duration
 
 on boot
     start variant-script
